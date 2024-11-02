@@ -18,7 +18,7 @@ dump:
 
 # This sets the container image more information can be found here: https://kubernetes.io/docs/concepts/containers/images/
 image:
-  repository: "ghcr.io/k8s-avengers/kube-dump" # set by GHA at Fri Nov  1 03:33:22 UTC 2024
+  repository: "ghcr.io/k8s-avengers/kube-dump" # set by GHA at Sat Nov  2 03:25:22 UTC 2024
   # This sets the pull policy for images.
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
