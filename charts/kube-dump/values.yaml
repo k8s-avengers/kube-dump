@@ -15,6 +15,9 @@ dump:
       enabled: false
       #server: "192.168.66.97"
       #path: "/mnt/adhoc/kube-dump/vmtest"
+  rotate: 
+    enabled: false # passes "--archive-rotate-days keep" to kube-dump
+    keep: 30 # Number of _days_ to keep old backups in NFS. This is used as find's -mtime "+keep" option. To match "1", a file has to have been modified at least two days ago.
 
 # This sets the container image more information can be found here: https://kubernetes.io/docs/concepts/containers/images/
 image:

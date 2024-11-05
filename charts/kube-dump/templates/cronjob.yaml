@@ -53,6 +53,11 @@ spec:
                 {{- if .Values.dump.namespaces }}
                 - "--namespaces={{ .Values.dump.namespaces | join "," }}"
                 {{- end }}
+                {{- if and (and .Values.dump.rotate .Values.dump.rotate.enabled) (.Values.dump.rotate.keep) }}
+                - "--archive-rotate-days={{ .Values.dump.rotate.keep }}"
+                {{- end }}
+                {{- if and .Values.dump.encrypt .Values.dump.encrypt.recipients }}
+                {{- end }}
               env:
                 {{- if and .Values.dump.encrypt .Values.dump.encrypt.recipients }}
                 # Check if values.dump.encrypt.recipients has more than 9 elements, if so, fail the deployment
