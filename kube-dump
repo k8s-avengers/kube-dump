@@ -385,7 +385,8 @@ rm -f "${output_dir}/.kube-dump-test"
 # Show what Rotate archives would do
 if [ -n "$archive_rotate" ]; then
 	info 'Rotation enabled for older than' "$archive_rotate days" "list of archives to remove follows, those will be deleted at the end of the run"
-	find "${dump_dir}" -mindepth 1 -maxdepth 1 -type f -name "*.tar.gz" -o -name "*.tar.gz.age" -mtime +"$archive_rotate"
+	find "${output_dir}" -mindepth 1 -maxdepth 1 -type f -name "*.tar.gz" -o -name "*.tar.gz.age" -mtime +"$archive_rotate"
+	info "End of listing of archives to remove" "due to rotation"
 fi
 
 info 'Dump data in' "$dump_dir" 'directory' ''
@@ -510,8 +511,9 @@ fi
 
 # Rotate archives
 if [ -n "$archive_rotate" ]; then
-	find "${dump_dir}" -mindepth 1 -maxdepth 1 -type f -name "*.tar.gz" -o -name "*.tar.gz.age" -mtime +"$archive_rotate" -delete
-	info 'Rotation for older than' "$archive_rotate days" "archives removed"
+	info 'Rotation for older than' "$archive_rotate days" "starting"
+	find "${output_dir}" -mindepth 1 -maxdepth 1 -type f -name "*.tar.gz" -o -name "*.tar.gz.age" -mtime +"$archive_rotate" -delete
+	info 'Rotation for older than' "$archive_rotate days" "done"
 fi
 
 # List the contents of the output_dir directory at this (late) stage.
