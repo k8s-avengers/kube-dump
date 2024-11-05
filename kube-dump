@@ -382,6 +382,12 @@ ls -lah "${output_dir}" || fail "Can't list contents of output directory: $outpu
 touch "${output_dir}/.kube-dump-test" || fail "Can't write to output directory: $output_dir"
 rm -f "${output_dir}/.kube-dump-test"
 
+# Show what Rotate archives would do
+if [ -n "$archive_rotate" ]; then
+	info 'Rotation enabled for older than' "$archive_rotate days" "list of archives to remove follows, those will be deleted at the end of the run"
+	find "${dump_dir}" -mindepth 1 -maxdepth 1 -type f -name "*.tar.gz" -o -name "*.tar.gz.age" -mtime +"$archive_rotate"
+fi
+
 info 'Dump data in' "$dump_dir" 'directory' ''
 score=0
 
