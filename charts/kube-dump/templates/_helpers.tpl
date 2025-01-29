@@ -65,12 +65,12 @@ Create the name of the service account to use
 Create the name of the cluster role binding to use
 */}}
 {{- define "kube-dump.clusterRoleBindingName" -}}
-{{- include "kube-dump.fullname" . }}-crb
+{{- include "kube-dump.fullname" . }}-crb-read-all
 {{- end }}
 
 {{/*
 Create the name of the cluster role to use
 */}}
 {{- define "kube-dump.clusterRoleName" -}}
-{{- include "kube-dump.fullname" . }}-cr
+{{- include "kube-dump.fullname" . }}-cr-read-all
 {{- end }}
