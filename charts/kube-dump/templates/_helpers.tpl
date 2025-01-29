@@ -67,3 +67,10 @@ Create the name of the cluster role binding to use
 {{- define "kube-dump.clusterRoleBindingName" -}}
 {{- include "kube-dump.fullname" . }}-crb
 {{- end }}
+
+{{/*
+Create the name of the cluster role to use
+*/}}
+{{- define "kube-dump.clusterRoleName" -}}
+{{- include "kube-dump.fullname" . }}-cr
+{{- end }}
