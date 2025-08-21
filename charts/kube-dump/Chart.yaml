@@ -2,5 +2,5 @@ apiVersion: v2
 name: kube-dump
 description: A Helm chart for kube-dump
 type: application
-version: "0.2.1" # set by GHA at Wed Aug 20 03:42:10 UTC 2025
-appVersion: "0.2.1" # set by GHA at Wed Aug 20 03:42:10 UTC 2025
+version: "0.2.1" # set by GHA at Thu Aug 21 03:41:12 UTC 2025
+appVersion: "0.2.1" # set by GHA at Thu Aug 21 03:41:12 UTC 2025
