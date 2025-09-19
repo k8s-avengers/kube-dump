@@ -8,6 +8,8 @@ spec:
   schedule: "{{ .Values.cronSchedule }}"
   jobTemplate:
     spec:
+      activeDeadlineSeconds: {{ .Values.activeDeadlineSeconds | default "" }}
+      backoffLimit: {{ .Values.backoffLimit | default "" }}
       template:
         metadata:
           {{- with .Values.podAnnotations }}
@@ -92,3 +94,4 @@ spec:
           tolerations:
             {{- toYaml . | nindent 12 }}
           {{- end }}
+
